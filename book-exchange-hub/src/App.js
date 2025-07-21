@@ -5,7 +5,9 @@ import AddBookForm from './components/AddBookForm';
 import RequestList from './components/RequestList';
 import './App.css';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? '/api' 
+  : 'http://localhost:3001';
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -118,23 +120,28 @@ function App() {
             <>
               <h2>My Books</h2>
               <AddBookForm onAddBook={handleAddBook} />
-              {/* Filter books for current user if you implement user login */}
               <BookList books={books} type="shelf" />
             </>
           } />
           <Route path="/market" element={
             <>
               <h2>Book Market</h2>
-              <BookList books={books} type="market" /> {/* Display all available books */}
+              <BookList books={books} type="market" />
             </>
           } />
           <Route path="/requests" element={
             <>
               <h2>Exchange Requests</h2>
-              <RequestList requests={requests} books={books} /> {/* Pass requests and books */}
+              <RequestList requests={requests} books={books} />
             </>
           } />
           <Route path="/" element={<p>Welcome to the Book Exchange Hub! Choose a section above.</p>} />
+          <Route path="*" element={
+            <div style={{ textAlign: 'center', padding: '50px' }}>
+              <h2>404 - Page Not Found</h2>
+              <p>The page you're looking for doesn't exist.</p>
+            </div>
+          } />
         </Routes>
       </div>
     </Router>
