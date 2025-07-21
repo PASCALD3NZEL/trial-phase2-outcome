@@ -135,7 +135,12 @@ function App() {
               <RequestList requests={requests} books={books} />
             </>
           } />
-          <Route path="/" element={<p>Welcome to the Book Exchange Hub! Choose a section above.</p>} />
+          <Route path="/" element={
+            <div style={{ textAlign: 'center', padding: '50px' }}>
+              <h1>📚 Welcome to Book Exchange Hub!</h1>
+              <p>Choose a section above to get started.</p>
+            </div>
+          } />
           <Route path="*" element={
             <div style={{ textAlign: 'center', padding: '50px' }}>
               <h2>404 - Page Not Found</h2>
