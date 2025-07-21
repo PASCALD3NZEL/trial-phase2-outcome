@@ -1,0 +1,44 @@
+{
+  "books": [
+    {
+      "id": "b1",
+      "title": "The Hitchhiker's Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "genre": "Sci-Fi",
+      "coverImageUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1405903939i/11.jpg",
+      "status": "Available",
+      "ownerId": "user1"
+    },
+    {
+      "id": "b2",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "genre": "Classic",
+      "coverImageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1320399354l/14986.jpg",
+      "status": "Requested",
+      "ownerId": "user2"
+    },
+    {
+      "id": "b3",
+      "title": "1984",
+      "author": "George Orwell",
+      "genre": "Dystopian",
+      "coverImageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1532714506l/40961.jpg",
+      "status": "Available",
+      "ownerId": "user1"
+    }
+  ],
+  "requests": [
+    {
+      "id": "r1",
+      "bookId": "b2",
+      "requesterId": "user1",
+      "ownerId": "user2",
+      "status": "Pending"
+    }
+  ],
+  "users": [
+    { "id": "user1", "name": "Alice" },
+    { "id": "user2", "name": "Bob" }
+  ]
+}
