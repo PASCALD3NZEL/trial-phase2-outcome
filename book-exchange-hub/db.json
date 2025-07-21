@@ -5,7 +5,7 @@
       "title": "The Hitchhiker's Guide to the Galaxy",
       "author": "Douglas Adams",
       "genre": "Sci-Fi",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/0345391802-M.jpg",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/0345391802-L.jpg",
       "status": "Available",
       "ownerId": "user1"
     },
@@ -14,7 +14,7 @@
       "title": "Pride and Prejudice",
       "author": "Jane Austen",
       "genre": "Classic",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780141439518-M.jpg",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
       "status": "Available",
       "ownerId": "user2"
     },
@@ -23,7 +23,7 @@
       "title": "1984",
       "author": "George Orwell",
       "genre": "Dystopian",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780451524935-M.jpg",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
       "status": "Available",
       "ownerId": "user1"
     }

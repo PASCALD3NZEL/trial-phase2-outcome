@@ -1,27 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function BookCard({ book, type }) {
-  const handleRequest = () => {
-    console.log(`Requesting book: ${book.title} (ID: ${book.id})`);
+  const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
+
+  const handleImageError = () => {
+    setImageError(true);
+    setImageLoading(false);
   };
 
-  const handleDelete = () => {
-    console.log(`Deleting book: ${book.title} (ID: ${book.id})`);
+  const handleImageLoad = () => {
+    setImageLoading(false);
+    setImageError(false);
   };
 
   return (
     <div className="book-card">
-      <img src={book.coverImageUrl} alt={book.title} />
+      <div className="book-image-container">
+        {imageLoading && !imageError && (
+          <div className="image-placeholder">Loading...</div>
+        )}
+        {imageError ? (
+          <div className="image-fallback">
+            <span style={{ fontSize: '4rem' }}>📚</span>
+          </div>
+        ) : (
+          <img
+            src={book.coverImageUrl}
+            alt={`Cover of ${book.title}`}
+            onError={handleImageError}
+            onLoad={handleImageLoad}
+            style={{ display: imageLoading ? 'none' : 'block' }}
+          />
+        )}
+      </div>
       <h3>{book.title}</h3>
-      <p>by {book.author}</p>
-      <p>Genre: {book.genre}</p>
-      <p>Status: {book.status}</p>
-      
-      {type === "market" && book.status === "Available" && (
-        <button onClick={handleRequest}>Request</button>
-      )}
-      {type === "shelf" && (
-        <button onClick={handleDelete}>Delete</button>
+      <p><strong>Author:</strong> {book.author}</p>
+      <p><strong>Genre:</strong> {book.genre}</p>
+      <p><strong>Status:</strong> {book.status}</p>
+      {type === "market" && (
+        <button className="request-btn">Request Book</button>
       )}
     </div>
   );

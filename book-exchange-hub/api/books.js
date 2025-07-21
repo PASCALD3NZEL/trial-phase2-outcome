@@ -1,9 +1,15 @@
-// Create this file in /api/books.js
+// /api/books.js
 export default function handler(req, res) {
-  // Enable CORS
+  // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
 
   const books = [
     {
@@ -11,7 +17,7 @@ export default function handler(req, res) {
       "title": "The Hitchhiker's Guide to the Galaxy",
       "author": "Douglas Adams",
       "genre": "Sci-Fi",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/0345391802-M.jpg",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/0345391802-L.jpg",
       "status": "Available",
       "ownerId": "user1"
     },
@@ -20,7 +26,7 @@ export default function handler(req, res) {
       "title": "Pride and Prejudice",
       "author": "Jane Austen",
       "genre": "Classic",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780141439518-M.jpg",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
       "status": "Available",
       "ownerId": "user2"
     },
@@ -29,9 +35,18 @@ export default function handler(req, res) {
       "title": "1984",
       "author": "George Orwell",
       "genre": "Dystopian",
-      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780451524935-M.jpg",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
       "status": "Available",
       "ownerId": "user1"
+    },
+    {
+      "id": "b4",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "genre": "Classic",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg",
+      "status": "Available",
+      "ownerId": "user2"
     }
   ];
 

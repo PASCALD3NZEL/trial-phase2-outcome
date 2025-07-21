@@ -102,12 +102,22 @@ h2 {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.book-card img {
-  max-width: 100%;
+.book-image-container {
+  position: relative;
   height: 200px;
-  object-fit: contain; /* or 'cover' depending on desired effect */
-  border-radius: 4px;
   margin-bottom: 10px;
+}
+
+.image-placeholder,
+.image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-secondary);
 }
 
 .book-card h3 {
@@ -165,23 +175,18 @@ h2 {
   box-shadow: 0 2px 5px var(--shadow);
 }
 
-.request-card button {
-  margin-right: 10px;
-  padding: 8px 12px;
-  border-radius: 4px;
+.request-btn {
+  background-color: var(--button-primary);
+  color: white;
   border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
-.request-card button:first-of-type {
-  background-color: #28a745;
-  color: white;
-}
-
-.request-card button:last-of-type {
-  background-color: #dc3545;
-  color: white;
+.request-btn:hover {
+  background-color: var(--button-primary-hover);
 }
 
 /* Dark mode specific adjustments */

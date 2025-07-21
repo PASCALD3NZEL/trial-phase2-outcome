@@ -45,12 +45,22 @@ function App() {
     
     fetch(`${API_URL}/books`)
       .then(res => {
+        console.log('Response status:', res.status);
+        console.log('Response headers:', res.headers.get('content-type'));
+        
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
+        
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Response is not JSON');
+        }
+        
         return res.json();
       })
       .then(data => {
+        console.log('Books data:', data);
         setBooks(data);
         setError(null);
       })
